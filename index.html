@@ -35,72 +35,63 @@
     </section>
 
     <section class="notes">
-      <div class="label"><span>01</span> A NOTE FROM THE BUILDER</div>
-      <p class="lead">For almost two years, I built agents inside worlds I could erase. Kernum began when I stopped thinking only about what software can do and started thinking about who gets to hold the reset button.</p>
+      <div class="label"><span>01</span> DEV NOTE / 001</div>
+      <p class="lead">I am building a new kind of computer system on top of Solana—one where applications, agents, storage, compute, licenses, and other parts of the system can be owned, exchanged, and recombined by the people who use them.</p>
 
-      <h3>WHY I STARTED</h3>
-      <p>Computers are called personal, but most of their important relationships are no longer personal. Our applications depend on company accounts. Our purchases can become inaccessible. Our files are pushed into services we do not control. A useful tool can disappear because a platform changes its rules, shuts down, or decides that our device is too old.</p>
-      <p>I do not think every company is malicious, and I do not believe blockchain automatically fixes these problems. I simply think we should be able to build another option: a computer where ownership is visible, permissions are understandable, and software can continue to exist beyond the company that first published it.</p>
-      <p>This idea began with a simple question. If a computer is made from many replaceable parts, why are the parts inside its software so difficult to own, exchange and recombine?</p>
+      <h3>A COMPUTER IS A SET OF PROMISES</h3>
+      <p>Every piece of software makes promises. It promises to open tomorrow, to leave your files where you put them, to ask before reaching into the rest of the machine and to remain useful after the company behind it changes direction.</p>
+      <p>Most of those promises are informal. They live in product pages, account policies and interfaces that can be rewritten without the software asking you. We are told that we own our tools, but what we usually own is temporary access to somebody else's decision.</p>
+      <p>I want Kernum to make those promises concrete. A program should arrive with an identity, a verifiable body of code, a visible set of permissions and a clear statement of the right you acquired. The computer should be able to check those facts without trusting the storefront that introduced you to the program.</p>
 
-      <h3>THE SIMPLE VERSION</h3>
-      <p class="plain">Kernum is a computer environment with its own internal market. It is not a shop for laptops or graphics cards. What people exchange inside it are digital parts of the system itself.</p>
-      <p>Those parts might be an application, an AI agent, a visual desktop, a month of encrypted storage, access to specialized computing power, a professional tool, an automation workflow, or a license that allows a component to run on your machine.</p>
-      <p>You could buy a component, rent it for a project, subscribe to its updates, resell a transferable license, or support the developer directly. The system would verify what you own and load the component without forcing you to depend on a single app store.</p>
+      <div class="label project"><span>02</span> THE IDEA</div>
+      <h2>Kernum is a local computer environment built from software parts that can be verified, exchanged and replaced.</h2>
+      <p>The easiest way to understand Kernum is to imagine that applications are not sealed products. They are components. Each component performs a limited job and declares the capabilities it needs: perhaps reading one directory, writing one kind of document, contacting a specific network service or using a fixed amount of compute.</p>
+      <p>Kernum sits between the component and the machine. Before anything runs, it checks which code was published, whether the downloaded bytes match that publication, what authority the component requested and whether the user has the right to launch it.</p>
+      <p>This does not make software harmless. It makes the relationship inspectable. Security begins when the machine can say exactly what it is about to trust.</p>
 
-      <div class="label project"><span>02</span> WHAT THE PROJECT IS</div>
-      <h2>A local-first computer system with an economy built into its architecture.</h2>
-      <p>The project has three connected layers. The first is a familiar computer interface where people open files, use tools and manage their work. The second is a secure runtime that isolates components and controls what each one is allowed to access. The third is Solana, which records ownership, licenses, payments and the history of published components.</p>
-      <p>The computer does not run “inside” the blockchain. Code execution, private files and everyday interaction stay on the user's device whenever possible. Solana sits underneath the experience as the shared ownership and settlement layer.</p>
+      <h3>THE KERNEL, NOT THE KINGDOM</h3>
+      <p>I do not want to build another platform that must own every part of the experience. Kernum should be small at the center and replaceable everywhere else. The runtime enforces a few durable rules; interfaces, stores, agents and tools can compete around it.</p>
+      <p>If somebody builds a better catalog, you should be able to use it. If a developer disappears, a valid component should not disappear with their website. If Kernum itself stops being the best interface, the records and artifacts should remain usable by another implementation.</p>
+      <p>A system is genuinely open only when leaving it is possible.</p>
 
-      <h3>WHY SOLANA</h3>
-      <p>Solana programs store component records, listings and time-limited licenses in program-derived accounts. Purchases settle in SOL while the local runtime keeps code and private files on the user device.</p>
-      <p>Kernum uses Solana for shared ownership and settlement. The browser connects to a Solana wallet, and the runtime checks account state and the component code hash before loading software.</p>
-
-      <h3>HOW A COMPONENT ENTERS THE SYSTEM</h3>
+      <h3>FOUR QUESTIONS FOR EVERY COMPONENT</h3>
+      <p>Before Kernum runs a component, the system should be able to answer four questions without marketing language:</p>
       <ol>
-        <li>A developer publishes a component and a cryptographic fingerprint of its code.</li>
-        <li>The developer defines its price, license rules, update policy and required permissions.</li>
-        <li>A user buys, rents or receives the right to use that component.</li>
-        <li>The local system verifies the license and code fingerprint through Solana.</li>
-        <li>The runtime loads the component inside a restricted environment.</li>
-        <li>Payment and royalties are settled automatically according to the published rules.</li>
+        <li><b>What is it?</b> A stable component identity and an exact fingerprint of the published code.</li>
+        <li><b>Who is responsible for it?</b> A publisher whose changes can be followed across versions.</li>
+        <li><b>What can it touch?</b> An explicit capability list that the local runtime can enforce.</li>
+        <li><b>Why may this machine run it?</b> A license or grant with visible terms, duration and ownership.</li>
       </ol>
+      <p>These answers do not need to make the interface complicated. The technical record can remain precise while the user sees a simple decision: this tool wants these abilities, for this reason, under these terms.</p>
 
-      <h3>WHAT CAN BE EXCHANGED</h3>
-      <p>Applications, plugins, AI agents, interface modules, storage plans, compute credits, datasets with clear usage rights, automation recipes, game content and transferable software licenses could all become system objects.</p>
+      <div class="label project"><span>03</span> WHY SOLANA</div>
+      <p>Some facts need to survive outside a single server: who published a component, which code fingerprint belongs to a version, whether a listing is active and whether an address holds a valid license. Solana gives those facts a shared place to live and a direct way to settle payment.</p>
+      <p>That is the boundary. Kernum does not put normal computation, private files or a user's daily activity onchain. The chain records the minimum shared state needed for independent parties to agree. The machine keeps the private work local.</p>
+      <p>This separation matters. A blockchain is useful as common memory. It is a poor substitute for the computer on your desk.</p>
 
-      <h3>WHAT MUST NEVER BECOME A MARKET</h3>
-      <p>Ownership must have limits. A person's identity, private keys, personal files, recovery rights and fundamental access to their own machine should never be commodities. No purchased module should be able to silently sell private information or take control of another component. The economy exists to serve the computer's owner—not to turn the owner into the product.</p>
+      <h3>THE MARKET IS NOT THE PRODUCT</h3>
+      <p>Kernum includes prices, listings and licenses because developers need a durable way to distribute work and users need a clear record of what they acquired. But the market is a mechanism, not the reason for the system to exist.</p>
+      <p>A component with no users is not made useful by trading it. A license is meaningful only when it unlocks software worth keeping. The quality of Kernum should be measured by whether a person can understand a component, trust its boundaries and continue using legitimate software—not by how much activity appears on a ledger.</p>
 
-      <h3>DESIGN PRINCIPLES</h3>
-      <ul>
-        <li><b>User sovereignty.</b> Core identity and personal data cannot be revoked by a vendor.</li>
-        <li><b>Explicit capability boundaries.</b> Every module declares what it can read, change and transmit.</li>
-        <li><b>Local-first execution.</b> Owning a component does not force private work onto a public chain.</li>
-        <li><b>Developer continuity.</b> Creators can publish, version and earn without locking users into one storefront.</li>
-        <li><b>Replaceable parts.</b> No system module should become an irreplaceable gatekeeper.</li>
-      </ul>
+      <h3>WHAT MUST REMAIN OUTSIDE THE MARKET</h3>
+      <p>The computer's owner is not inventory. Identity, private keys, personal files, recovery rights and basic access to the machine must never become tradable components. No license should grant hidden control, and no installed tool should be able to quietly expand its own authority.</p>
+      <p>Ownership without boundaries becomes another form of capture. Kernum is meant to give the user leverage, not create a more elaborate landlord.</p>
 
-      <h3>WHAT THE FUTURE COULD LOOK LIKE</h3>
-      <p>Imagine opening a new computer and signing in with an identity you control. Your workspace reconstructs itself from a private manifest. The tools you own appear, your preferred interface loads, and every component clearly shows who built it, what it can access and whether its license can be transferred.</p>
-      <p>A designer could rent an expensive rendering module for one afternoon. A small developer could publish a useful system tool and receive payment each time a license changes hands. A community could maintain an abandoned application without losing its users. An AI agent could purchase a limited amount of compute through a session permission without receiving control of the owner's wallet.</p>
-      <p>Eventually, Kernum could become a shared protocol rather than one company's operating system: many interfaces, many runtimes and many marketplaces using the same open component standard. Users could leave one implementation and carry their legitimate software rights into another.</p>
+      <div class="label project"><span>04</span> WHAT EXISTS NOW</div>
+      <p>Today, Kernum is an implementation rather than a promise deck. The repository contains a local component runtime, manifest validation, cryptographic artifact checks, capability enforcement, installation storage and a browser interface for exploring and acquiring components.</p>
+      <p>It also contains an Anchor program for Solana. The program can register component code hashes, create SOL-denominated listings, receive purchases and record time-limited licenses. Automated tests cover the local installation path, modified-artifact rejection, license decisions and the construction of marketplace transactions.</p>
+      <p>The public interface is still a demonstration. Its catalog is made of samples. The onchain program has not been presented as audited production infrastructure. Isolation, recovery, publisher reputation, upgrades and a complete public deployment still require serious work.</p>
 
-      <h3>WHERE THE PROJECT IS TODAY</h3>
-      <p>This is an early architecture project. The repository currently demonstrates the core model: a capability-based kernel, a component registry, a license market and a local runtime. It is not yet a finished operating system, and the Solana program has not been presented as production-ready financial infrastructure.</p>
-      <p>The next serious work is to define the component standard, threat model, permission language and recovery model; deploy and test the Kernum program on Solana devnet; and build a small local runtime that can install and safely launch one real component from beginning to end.</p>
+      <h3>THE NEXT USEFUL MILESTONE</h3>
+      <p>The next milestone is not “more features.” It is one honest journey from beginning to end: a developer publishes a real component; a user reads its permissions; the user acquires a license; Kernum verifies the exact artifact; the runtime launches it with only the authority it requested.</p>
+      <p>When that path works, it becomes a foundation. Until it works, everything larger is only vocabulary.</p>
 
-      <h3>THE QUESTIONS I AM NOT HIDING</h3>
-      <p>How should licenses survive forks? Which rights should never be transferable? How can account recovery work without rebuilding centralized custody? How do we stop speculation from overwhelming usefulness? What is the simplest permission language a non-technical user can genuinely understand?</p>
-      <p>I do not have final answers yet. Those questions are not weaknesses to cover with branding—they are the actual work of building the project responsibly.</p>
+      <h3>WHY THE SOURCE IS BESIDE THIS NOTE</h3>
+      <p>I could describe Kernum with diagrams and future scenarios, but the code is a better boundary around the claim. The source browser beside this note is not decoration. It shows the runtime and Solana implementation that exist now, including the unfinished edges.</p>
+      <p>I am building Kernum in public because the project asks users to inspect software before trusting it. The project itself should accept the same standard.</p>
 
-      <h3>WHY THIS IS PUBLIC</h3>
-      <p>I am showing the work early because the project should be understandable before it becomes impressive. The code on the right is a concrete description of the direction, not proof that every problem has been solved. I want criticism from developers, designers and ordinary computer users while the foundations can still change.</p>
-      <p>If this succeeds, the blockchain will not be the first thing people notice. They will notice that their tools are portable, their permissions make sense, developers are paid fairly, and their computer continues to belong to them.</p>
-
-      <div class="tags"><span>COMPOSABLE</span><span>USER-OWNED</span><span>LOCAL-FIRST</span><span>PERMISSIONED</span><span>OPEN SOURCE</span></div>
-      <p class="signature">— Kernum, development note 001</p>
+      <div class="tags"><span>LOCAL-FIRST</span><span>VERIFIABLE SOFTWARE</span><span>EXPLICIT CAPABILITIES</span><span>PORTABLE RIGHTS</span><span>OPEN SOURCE</span></div>
+      <p class="signature">— Kernum, development note 001 / October 2026</p>
     </section>
   </aside>
 
