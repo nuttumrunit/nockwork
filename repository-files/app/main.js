@@ -37,7 +37,7 @@ const catalog = [
     id:"system/mono-shell",listingId:4,name:"Mono Shell",icon:"MS",
     category:"Interface",price:"FREE",lamports:0n,term:"PERPETUAL",
     developer:"LOCAL SAMPLE",
-    description:"A restrained keyboard-first shell for the Shellwork environment.",
+    description:"A restrained keyboard-first shell for the Kernum environment.",
     permissions:["storage:read"]
   },
   {

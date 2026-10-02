@@ -20913,7 +20913,7 @@ var catalog = [
     lamports: 0n,
     term: "PERPETUAL",
     developer: "LOCAL SAMPLE",
-    description: "A restrained keyboard-first shell for the Shellwork environment.",
+    description: "A restrained keyboard-first shell for the Kernum environment.",
     permissions: ["storage:read"]
   },
   {

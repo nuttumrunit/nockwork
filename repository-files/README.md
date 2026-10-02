@@ -1,6 +1,6 @@
-# Shellwork Solana implementation
+# Kernum Solana implementation
 
-Shellwork separates local software execution from Solana ownership and settlement. The Anchor program stores component code hashes, publishers, SOL-denominated listings and time-limited licenses in deterministic program-derived accounts. The browser uses a Solana wallet to sign purchases. The local runtime verifies artifacts before executing WebAssembly.
+Kernum separates local software execution from Solana ownership and settlement. The Anchor program stores component code hashes, publishers, SOL-denominated listings and time-limited licenses in deterministic program-derived accounts. The browser uses a Solana wallet to sign purchases. The local runtime verifies artifacts before executing WebAssembly.
 
 ## Local verification
 

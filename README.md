@@ -1,6 +1,6 @@
-# Shellwork
+# Kernum
 
-Shellwork is a local-first component runtime with a Solana program for publishing code hashes, listing software licenses, receiving SOL payments, and recording access expiry.
+Kernum is a local-first component runtime with a Solana program for publishing code hashes, listing software licenses, receiving SOL payments, and recording access expiry.
 
 ## Project layout
 
@@ -19,7 +19,7 @@ npm run verify
 npm run demo
 ```
 
-Serve the repository root over HTTP and open `/system/`. The browser starts in Local Demo mode. In Chain Settings, choose Solana Devnet or Mainnet and enter a deployed Shellwork Program ID to enable onchain purchases. Catalog entries in Local Demo are samples; real purchases require matching published components and listings on the chosen network.
+Serve the repository root over HTTP and open `/system/`. The browser starts in Local Demo mode. In Chain Settings, choose Solana Devnet or Mainnet and enter a deployed Kernum Program ID to enable onchain purchases. Catalog entries in Local Demo are samples; real purchases require matching published components and listings on the chosen network.
 
 ## Build the Solana program
 
